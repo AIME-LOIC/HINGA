@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Real Weather App - Hinga</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <style>
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background: #e0f7fa;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
+      flex-direction: column;
+    }
+
+    .weather-box {
+      background: white;
+      padding: 30px;
+      border-radius: 10px;
+      box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+      text-align: center;
+      width: 350px;
+      margin-bottom: 20px;
+    }
+
+    .weather-box h2 {
+      margin-bottom: 20px;
+    }
+
+    .input-group {
+      margin-bottom: 20px;
+    }
+
+    input {
+      padding: 10px;
+      width: 70%;
+      border-radius: 5px;
+      border: 1px solid #ccc;
+    }
+
+    button {
+      background: #00796b;
+      color: white;
+      padding: 10px 15px;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+
+    button:hover {
+      background: #004d40;
+    }
+
+    .weather-result {
+      margin-top: 20px;
+    }
+
+    .forecast {
+      margin-top: 20px;
+      text-align: left;
+    }
+
+    .forecast-day {
+      margin-bottom: 10px;
+    }
+
+    .nav-link {
+      margin-top: 10px;
+      font-size: 14px;
+    }
+
+    .nav-link a {
+      text-decoration: none;
+      color: #00796b;
+    }
+  </style>
+</head>
+<body>
+  <div class="weather-box">
+    <h2><i class="fas fa-cloud-sun"></i> Weather App</h2>
+    <div class="input-group">
+      <input type="text" id="city" placeholder="Enter city name">
+      <button onclick="getWeather()">Check</button>
+      <button onclick="getLocationWeather()" title="Use My Location"><i class="fas fa-location-crosshairs"></i></button>
+    </div>
+    <div class="weather-result" id="result"></div>
+    <div class="forecast" id="forecast"></div>
+    <div class="nav-link">
+      <a href="services.html">← Back to Hinga Services</a>
+    </div>
+  </div>
+
+  <script>
+    const apiKey = ''; 
+
+    async function getWeather(city = null, lat = null, lon = null) {
+      let url = city 
+        ? `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=metric`
+        : `https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&appid=${apiKey}&units=metric`;
+
+      try {
+        const response = await fetch(url);
+        if (!response.ok) throw new Error('City not found');
+
+        const data = await response.json();
+        const icon = `https://openweathermap.org/img/wn/${data.weather[0].icon}@2x.png`;
+
+        document.getElementById('result').innerHTML = `
+          <h3>${data.name}, ${data.sys.country}</h3>
+          <img src="${icon}" alt="Weather icon">
+          <p><strong>Temperature:</strong> ${data.main.temp}°C</p>
+          <p><strong>Weather:</strong> ${data.weather[0].description}</p>
+          <p><strong>Humidity:</strong> ${data.main.humidity}%</p>
+          <p><strong>Wind Speed:</strong> ${data.wind.speed} m/s</p>
+        `;
+
+        getForecast(data.coord.lat, data.coord.lon);
+      } catch (error) {
+        document.getElementById('result').innerHTML = `<p style="color:red;">${error.message}</p>`;
+      }
+    }
+
+    async function getForecast(lat, lon) {
+      const forecastUrl = `https://api.openweathermap.org/data/2.5/forecast?lat=${lat}&lon=${lon}&appid=${apiKey}&units=metric`;
+
+      try {
+        const response = await fetch(forecastUrl);
+        const data = await response.json();
+
+        let dailyData = {};
+
+        data.list.forEach(item => {
+          const date = item.dt_txt.split(' ')[0];
+          if (!dailyData[date]) {
+            dailyData[date] = item;
+          }
+        });
+
+        let forecastHTML = '<h4>3-Day Forecast</h4>';
+        Object.values(dailyData).slice(0, 3).forEach(day => {
+          forecastHTML += `
+            <div class="forecast-day">
+              <strong>${day.dt_txt.split(' ')[0]}</strong><br>
+              <img src="https://openweathermap.org/img/wn/${day.weather[0].icon}.png">
+              ${day.main.temp}°C - ${day.weather[0].description}
+            </div>
+          `;
+        });
+
+        document.getElementById('forecast').innerHTML = forecastHTML;
+      } catch (error) {
+        document.getElementById('forecast').innerHTML = '';
+      }
+    }
+
+    function getLocationWeather() {
+      if (navigator.geolocation) {
+        navigator.geolocation.getCurrentPosition(
+          position => {
+            const { latitude, longitude } = position.coords;
+            getWeather(null, latitude, longitude);
+          },
+          () => alert('Unable to retrieve location')
+        );
+      } else {
+        alert('Geolocation is not supported by your browser');
+      }
+    }
+  </script>
+</body>
+</html>

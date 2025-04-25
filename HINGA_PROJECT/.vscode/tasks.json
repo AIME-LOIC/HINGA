@@ -1,0 +1,13 @@
+{
+	"version": "2.0.0",
+	"tasks": [
+		{
+			"type": "npm",
+			"script": "start",
+			"path": "hinga-backend",
+			"problemMatcher": [],
+			"label": "npm: start - hinga-backend",
+			"detail": "nodemon server.js"
+		}
+	]
+}

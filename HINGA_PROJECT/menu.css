@@ -1,0 +1,139 @@
+body {
+  font-family: 'Poppins', sans-serif;
+  background: url(./11e741d3-2268-45fd-ba53-70972e89579a.jpg);
+  background-repeat: no-repeat;
+  background-size: cover;
+  color: #fff;
+  margin: 0;
+  font-size: 14px;
+}
+
+header {
+  background-color: #111;
+  padding: 20px 0;
+}
+
+nav {
+  width: 1140px;
+  max-width: 90%;
+  margin: auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+nav a {
+  color: white;
+  text-decoration: none;
+  margin-right: 20px;
+  font-size: 16px;
+  transition: color 0.3s ease;
+}
+
+nav a i {
+  margin-right: 6px;
+  transition: transform 0.3s ease;
+}
+
+nav a:hover {
+  color: hsl(196, 90%, 51%);
+}
+
+nav a:hover i {
+  transform: scale(1.2);
+  color: hsl(196, 90%, 51%);
+}
+
+article {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 40px;
+  text-align: center;
+}
+
+.article-image {
+  max-width: 90%;
+  height: auto;
+  border-radius: 10px;
+  box-shadow: 0 4px 10px rgba(255, 255, 255, 0.1);
+  margin-bottom: 20px;
+}
+
+p {
+  font-size: 18px;
+  margin-bottom: 20px;
+}
+
+p i {
+  margin-right: 8px;
+}
+
+.start-btn {
+  background-color: #007bff;
+  color: white;
+  font-size: 16px;
+  padding: 12px 20px;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  transition: background 0.3s ease;
+}
+
+.start-btn:hover {
+  background-color: #0056b3;
+}
+  .scrolling-image-container {
+    width: 450px;
+    height: 450px;
+    overflow: hidden;
+    position: relative;
+    display: inline-block;
+
+  }
+
+  .scrolling-image {
+    width: 100%;
+    animation: scrollImage 10s linear infinite;
+  }
+
+  @keyframes scrollImage {
+    0% {
+      transform: translateX(100%);
+    }
+    100% {
+      transform: translateX(-100%); 
+    }
+  }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
