@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Weather App</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background: linear-gradient(to right, #87CEFA, #f0f8ff);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 50px;
+        }
+
+        h1 {
+            color: #333;
+        }
+
+        input, button {
+            padding: 10px;
+            margin: 10px;
+            font-size: 16px;
+        }
+
+        #weather {
+            margin-top: 20px;
+            padding: 20px;
+            background: white;
+            border-radius: 12px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+
+<h1>🌤 Weather App</h1>
+
+<!-- Form to enter the city -->
+<form method="POST">
+    <input type="text" name="city" placeholder="Enter city name" required>
+    <button type="submit">Get Weather</button>
+</form>
+
+<!-- Display weather information -->
+<div id="weather">
+    {% if weather_info %}
+        <h2>{{ weather_info }}</h2>
+    {% else %}
+        <p>Enter a city name to get weather information!</p>
+    {% endif %}
+</div>
+
+</body>
+</html>
