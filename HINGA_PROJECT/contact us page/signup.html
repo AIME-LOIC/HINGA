@@ -1,0 +1,144 @@
+<!-- signup.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Sign Up | Hinga</title>
+  <style>
+   * { margin: 0; padding: 0; box-sizing: border-box; }
+    body, html {
+      height: 100%;
+      font-family: 'Segoe UI', sans-serif;
+    }
+
+    body {
+      background: url('hello.jpg') no-repeat center center/cover;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: flex-start;
+    }
+
+    .navbar {
+      width: 100%;
+      background-color: rgba(0, 100, 0, 0.7);
+      padding: 15px 40px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      position: fixed;
+      top: 0;
+      z-index: 100;
+    }
+
+    .navbar .logo img {
+      height: 80px;
+    }
+
+    .navbar a {
+      color: white;
+      text-decoration: none;
+      margin-left: 25px;
+      font-size: 18px;
+      transition: color 0.3s;
+    }
+
+    .navbar a:hover {
+      color: #c8facc;
+    }
+
+    .form-wrapper {
+      margin-top: 160px;
+      background: rgba(255, 255, 255, 0.15);
+      backdrop-filter: blur(10px);
+      -webkit-backdrop-filter: blur(10px);
+      border-radius: 15px;
+      padding: 30px;
+      width: 90%;
+      max-width: 400px;
+      box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
+      color: white;
+    }
+
+    .form-wrapper h2 {
+      text-align: center;
+      margin-bottom: 20px;
+      font-size: 24px;
+    }
+
+    .form-wrapper input {
+      width: 100%;
+      padding: 12px;
+      margin: 10px 0;
+      border: none;
+      border-radius: 8px;
+      background-color: rgba(255, 255, 255, 0.3);
+      color: white;
+      font-size: 15px;
+      outline: none;
+    }
+
+    .form-wrapper input::placeholder {
+      color: #eee;
+    }
+
+    .form-wrapper button {
+      width: 100%;
+      padding: 12px;
+      margin-top: 15px;
+      background-color: #2e7d32;
+      color: white;
+      border: none;
+      border-radius: 8px;
+      font-size: 16px;
+      cursor: pointer;
+      transition: background-color 0.3s;
+    }
+
+    .form-wrapper button:hover {
+      background-color: #1b5e20;
+    }
+
+    @media (max-width: 600px) {
+      .navbar {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+      .navbar a {
+        margin-top: 10px;
+      }
+    }  
+  </style>
+</head>
+<body>
+
+  <!-- Navbar -->
+  <div class="navbar">
+    <div class="logo">
+      <img src="logo.PNG" alt="Hinga Logo" />
+    </div>
+    <div>
+      <a href="index.html">Home</a>
+      <a href="about.html">About Us</a>
+      <a href="services.html">Services</a>
+      <a href="coca.html">Contact Us</a>
+      <a href="login.html">Login</a>
+      <a href="signup.html">sign up</a>
+    </div>
+  </div>
+
+  <!-- Sign Up Form -->
+  <div class="form-wrapper">
+    <h2>Sign Up</h2>
+    <form>
+      <input type="text" placeholder="Full Name" required />
+      <input type="email" placeholder="Email Address" required />
+      <input type="password" placeholder="Password" required />
+      <input type="password" placeholder="Confirm Password" required />
+      <button type="submit">Create Account</button>
+    </form>
+  </div>
+
+</body>
+</html>

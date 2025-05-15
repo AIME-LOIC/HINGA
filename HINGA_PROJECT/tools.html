@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Hinga Marketplace</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      background: #f3f7f5;
+      color: #333;
+    }
+
+    header {
+      background-color: #2e7d32;
+      padding: 1rem 2rem;
+      color: white;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    header h1 {
+      font-size: 1.5rem;
+    }
+
+    nav a {
+      color: white;
+      margin-left: 20px;
+      text-decoration: none;
+    }
+
+    main {
+      padding: 2rem;
+    }
+
+    .product-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 2rem;
+    }
+
+    .product-card {
+      background: white;
+      border-radius: 10px;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+      overflow: hidden;
+      padding: 1rem;
+    }
+
+    .product-card img {
+      width: 100%;
+      height: 180px;
+      object-fit: cover;
+      border-radius: 8px;
+    }
+
+    .product-info {
+      margin-top: 1rem;
+    }
+
+    .product-info h3 {
+      font-size: 1.1rem;
+    }
+
+    .price {
+      color: #2e7d32;
+      font-weight: bold;
+    }
+
+    .stars {
+      color: gold;
+    }
+
+    .footer {
+      background: #2e7d32;
+      color: white;
+      text-align: center;
+      padding: 1rem;
+      margin-top: 3rem;
+    }
+  </style>
+</head>
+<body>
+
+<header>
+  <h1>HINGA | Farmer Marketplace</h1>
+  <nav>
+    <a href="./index.html">Home</a>
+    <a href="./sell.html">Sell</a>
+    <a href="./buy.html">Buy</a>
+  
+  </nav>
+</header>
+
+<main>
+  <h2 style="margin-bottom: 1rem;">Modern Farming Tools & Equipment</h2>
+  <div class="product-grid" id="productList">
+  </div>
+</main>
+
+<footer class="footer">
+  &copy; 2025 HINGA. All rights reserved.
+</footer>
+
+<script>
+  const products = [
+    {
+      name: "Solar Water Pump",
+      price: "$350",
+      quality: "High",
+      stars: 5,
+      img: "./water pp.jpeg"
+    },
+    {
+      name: "Smart Drip Irrigation Kit",
+      price: "$220",
+      quality: "Premium",
+      stars: 4,
+      img: "./auto drip.jpeg"
+    },
+    {
+      name: "Motorized Plough",
+      price: "$600",
+      quality: "Excellent",
+      stars: 5,
+      img: "motorized.jpeg"
+    },
+    {
+      name: "Soil Sensor Device",
+      description:" smart tool to detect soil fertility",
+      price: "$75",
+      quality: "Good",
+      stars: 4,
+      img: "./sensor.jpeg"
+    }
+  ];
+
+  function renderStars(count) {
+    return "★".repeat(count) + "☆".repeat(5 - count);
+  }
+
+  const productList = document.getElementById("productList");
+
+  products.forEach(product => {
+    productList.innerHTML += `
+      <div class="product-card">
+        <img src="${product.img}" alt="${product.name}">
+        <div class="product-info">
+          <h3>${product.name}</h3>
+          <p class="price">${product.price}</p>
+          <p>Quality: ${product.quality}</p>
+          <p class="stars">${renderStars(product.stars)}</p>
+        </div>
+      </div>
+    `;
+  });
+</script>
+
+</body>
+</html>

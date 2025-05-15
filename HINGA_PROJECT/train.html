@@ -1,0 +1,281 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Training | Hinga</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;600&display=swap" rel="stylesheet"/>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Poppins', sans-serif;
+      background-color: #f4fff5;
+      color: #013a1a;
+    }
+
+    header {
+      background-color: #228B22;
+      padding: 15px 30px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      color: white;
+    }
+
+    .logo {
+      display: flex;
+      align-items: center;
+    }
+
+    .logo img {
+      height: 40px;
+      margin-right: 10px;
+      border-radius: 50%;
+    }
+
+    .logo h1 {
+      font-size: 24px;
+    }
+
+    .back-home {
+      color: white;
+      text-decoration: none;
+      font-weight: 500;
+      background-color: #034d1a;
+      padding: 8px 15px;
+      border-radius: 6px;
+      transition: background 0.3s;
+    }
+
+    .back-home:hover {
+      background-color: #04662e;
+    }
+
+    .train-container {
+      display: flex;
+      min-height: 90vh;
+    }
+
+    .sidebar {
+      width: 250px;
+      background-color: #04754c;
+      padding: 20px;
+      color: white;
+    }
+
+    .sidebar h2 {
+      font-size: 20px;
+      margin-bottom: 15px;
+    }
+
+    .sidebar ul {
+      list-style: none;
+    }
+
+    .sidebar li {
+      margin-bottom: 10px;
+    }
+
+    .sidebar button {
+      background-color: #29a329;
+      border: none;
+      color: white;
+      padding: 10px;
+      width: 100%;
+      border-radius: 5px;
+      cursor: pointer;
+      text-align: left;
+    }
+
+    .sidebar button:hover {
+      background-color: #38c738;
+    }
+
+    .content-area {
+      flex: 1;
+      padding: 30px;
+      background-color: #fff;
+    }
+
+    .content-area h2 {
+      color: #04754c;
+      margin-bottom: 15px;
+    }
+
+    .content-area p {
+      line-height: 1.7;
+      font-size: 1.1rem;
+      color: #034d1a;
+    }
+
+    .content-image {
+      max-width: 100%;
+      height: 400px;
+      margin-top: 20px;
+      border-radius: 10px;
+    }
+
+    iframe {
+      width: 100%;
+      height: 300px;
+      border-radius: 10px;
+      margin-top: 20px;
+    }
+
+    .quiz {
+      margin-top: 30px;
+      background: #e9fce9;
+      padding: 20px;
+      border-radius: 10px;
+    }
+
+    .quiz h3 {
+      margin-bottom: 10px;
+    }
+
+    .quiz label {
+      display: block;
+      margin: 10px 0;
+    }
+
+    .quiz button {
+      margin-top: 10px;
+      padding: 8px 16px;
+      border: none;
+      background: #04754c;
+      color: white;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+
+    .quiz-result {
+      margin-top: 10px;
+      font-weight: bold;
+    }
+
+    @media (max-width: 768px) {
+      .train-container {
+        flex-direction: column;
+      }
+
+      .sidebar {
+        width: 100%;
+      }
+    }
+
+    footer {
+      background-color: #013a1a;
+      text-align: center;
+      color: white;
+      padding: 20px;
+    }
+  </style>
+</head>
+<body>
+
+<header>
+  <div class="logo">
+    <img src="./logo.png" alt="Hinga Logo" style="border-radius: 70px">
+    <h1>HINGA☘</h1>
+  </div>
+  <a href="./index.html" class="back-home">← Back to Home</a>
+</header>
+
+<div class="train-container">
+  <aside class="sidebar">
+    <h2>Choose Training</h2>
+    <ul>
+      <li><button onclick="loadContent('soil')">Soil Management</button></li>
+      <li><button onclick="loadContent('irrigation')">Irrigation Techniques</button></li>
+      <li><button onclick="loadContent('pest')">Pest Control</button></li>
+      <li><button onclick="loadContent('harvest')">Harvesting</button></li>
+      <li><button onclick="loadContent('digital')">Digital Farming</button></li>
+    </ul>
+  </aside>
+
+  <section class="content-area" id="trainingContent">
+    <h2>Welcome to Hinga Training</h2>
+    <p>Select a topic from the left to get started with practical training information tailored for farmers.</p>
+    <img src="./water pp.jpeg">
+  </section>
+</div>
+
+<footer>
+  <p>&copy; 2025 Hinga Agritech | Learn. Grow. Thrive.</p>
+</footer>
+
+<script>
+  function loadContent(topic) {
+    const content = {
+      soil: `
+        <h2>Soil Management</h2>
+        <p>Learn how to test, improve and maintain soil fertility for better yields. Discover composting, pH balancing and crop rotation techniques.</p>
+        <img src="./soile.jpeg" alt="Soil Training" class="content-image" />
+        ${quiz('What is crop rotation?', 'soil')}
+      `,
+      irrigation: `
+        <h2>Irrigation Techniques</h2>
+        <p>Explore drip, sprinkler, and traditional irrigation methods. Learn water conservation practices and how to set up affordable irrigation systems.</p>
+        <img src="./irrigatio.jpeg" alt="Irrigation" class="content-image" />
+        ${quiz('Which system saves most water?', 'irrigation')}
+      `,
+      pest: `
+        <h2>Pest Control</h2>
+        <p>Identify common crop pests and organic methods to control them. Learn about safe pesticide use, traps, and companion planting.</p>
+        <img src="./pest control.jpeg" alt="Pest Control" class="content-image" />
+        ${quiz('What is a natural way to control pests?', 'pest')}
+      `,
+      harvest: `
+        <h2>Harvesting</h2>
+        <p>Understand the right time and method to harvest various crops to maintain freshness, quality, and value. Proper post-harvest handling is key.</p>
+        <img src="./harvest.jpeg" alt="Harvesting" class="content-image" />
+        ${quiz('Why is harvest timing important?', 'harvest')}
+      `,
+      digital: `
+        <h2>Digital Farming</h2>
+        <p>Get introduced to smart farming tools like weather sensors, mobile apps for crop planning, and market price alerts to increase productivity.</p>
+        <img src="./digital farming.jpeg" alt="Digital Farming" class="content-image" />
+        ${quiz('Which app helps with weather updates?', 'digital')}
+      `
+    };
+
+    document.getElementById("trainingContent").innerHTML = content[topic] || "<h2>Content not found</h2>";
+  }
+
+  function quiz(question, id) {
+    return `
+      <div class="quiz">
+        <h3>Quiz Time</h3>
+        <p>${question}</p>
+        <label><input type="radio" name="quiz-${id}" value="A"> soil</label>
+        <label><input type="radio" name="quiz-${id}" value="B"> irrigation</label>
+        <label><input type="radio" name="quiz-${id}" value="C"> harvest</label>
+        <button onclick="checkAnswer('${id}')">Submit Answer</button>
+        <p id="result-${id}" class="quiz-result"></p>
+      </div>
+    `;
+  }
+
+  function checkAnswer(id) {
+    const radios = document.getElementsByName(`quiz-${id}`);
+    let selected = null;
+    for (const radio of radios) {
+      if (radio.checked) selected = radio.value;
+    }
+
+    const result = document.getElementById(`result-${id}`);
+    if (!selected) {
+      result.innerText = "Please select an answer!";
+    } else {
+      result.innerText = `You selected: ${selected}. Good try!`;
+    }
+  }
+</script>
+
+</body>
+</html>

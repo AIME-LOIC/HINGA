@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Our Vision | Hinga</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;600&display=swap" rel="stylesheet"/>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body, html {
+      height: 100%;
+      font-family: 'Poppins', sans-serif;
+      background-color: #f2fff5;
+      color: #013a1a;
+    }
+
+    header {
+      background-color: #228B22;
+      padding: 15px 30px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      color: white;
+    }
+
+    .logo {
+      display: flex;
+      align-items: center;
+    }
+
+    .logo img {
+      height: 40px;
+      margin-right: 10px;
+      border-radius: 50%;
+    }
+
+    .logo h1 {
+      font-size: 24px;
+    }
+
+    .back-home {
+      color: white;
+      text-decoration: none;
+      font-weight: 500;
+      background-color: #034d1a;
+      padding: 8px 15px;
+      border-radius: 6px;
+      transition: background 0.3s;
+    }
+
+    .back-home:hover {
+      background-color: #04662e;
+    }
+
+    .vision-section {
+      padding: 40px 20px;
+      text-align: center;
+    }
+
+    .vision-section h2 {
+      font-size: 2.5rem;
+      color: #04754c;
+      margin-bottom: 20px;
+    }
+
+    .vision-img {
+      width: 200px;
+      height: 200px;
+      object-fit: cover;
+      border-radius: 50%;
+      border: 5px solid #04754c;
+      margin: 20px auto;
+      box-shadow: 0 0 10px rgba(0,0,0,0.3);
+    }
+
+    .vision-section p {
+      max-width: 800px;
+      margin: auto;
+      font-size: 1.1rem;
+      line-height: 1.7;
+      color: #044227;
+    }
+
+    .chart-container {
+      max-width: 500px;
+      margin: 40px auto;
+    }
+
+    footer {
+      background-color: #013a1a;
+      text-align: center;
+      color: white;
+      padding: 20px;
+    }
+
+    @media (max-width: 768px) {
+      .vision-section h2 {
+        font-size: 2rem;
+      }
+
+      .vision-section p {
+        font-size: 1rem;
+        padding: 0 10px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+<header>
+  <div class="logo">
+    <img src="./hinga logo.png.png" alt="Hinga Logo">
+    <h1>HINGA☘</h1>
+  </div>
+  <a href="./index.html" class="back-home">← Back to Home</a>
+</header>
+
+<section class="vision-section">
+  <h2>Our Vision</h2>
+  <img src="./vision.jpeg" alt="Vision" class="vision-img" />
+  <p>
+    Our vision at Hinga is to revolutionize agriculture by making it smarter, greener, and accessible to all.
+    We aim to create a digital farming ecosystem, connect rural farmers, and promote sustainability.
+    Through innovation, we help build a future where farming is productive, profitable, and environmentally sound.
+  </p>
+
+  <div class="chart-container">
+    <canvas id="visionChart"></canvas>
+  </div>
+</section>
+
+<footer>
+  <p>&copy; 2025 Hinga Agritech | Growing the Future Together</p>
+</footer>
+
+<script>
+  const ctx = document.getElementById('visionChart').getContext('2d');
+  const visionChart = new Chart(ctx, {
+    type: 'pie',
+    data: {
+      labels: ['Digital Farming', 'Sustainability', 'Farmer Empowerment', 'Innovation'],
+      datasets: [{
+        label: 'Vision Elements',
+        data: [30, 25, 25, 20],
+        backgroundColor: [
+          '#04754c',
+          '#29a329',
+          '#ffe600',
+          '#ff9933'
+        ],
+        borderColor: '#fff',
+        borderWidth: 1
+      }]
+    },
+    options: {
+      responsive: true,
+      plugins: {
+        legend: {
+          position: 'bottom'
+        }
+      }
+    }
+  });
+</script>
+
+</body>
+</html>

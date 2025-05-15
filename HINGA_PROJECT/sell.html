@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Hinga | Sell Products</title>
+  <style>
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      margin: 0;
+      padding: 0;
+      background: #f9f9f9;
+      color: #333;
+    }
+
+    nav {
+      background-color: #228B22;
+      color: white;
+      padding: 15px 30px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    nav h1 {
+      margin: 0;
+      font-size: 24px;
+    }
+
+    nav ul {
+      list-style: none;
+      display: flex;
+      gap: 20px;
+    }
+
+    nav ul li a {
+      color: white;
+      text-decoration: none;
+      font-weight: bold;
+    }
+
+    .sell-container {
+      padding: 30px;
+      max-width: 800px;
+      margin: 0 auto;
+    }
+
+    .sell-container h2 {
+      margin-bottom: 20px;
+      color: #228B22;
+    }
+
+    .sell-form {
+      display: grid;
+      gap: 15px;
+      grid-template-columns: 1fr 1fr;
+      background: white;
+      padding: 20px;
+      border-radius: 10px;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    }
+
+    .sell-form input,
+    .sell-form select {
+      padding: 10px;
+      border-radius: 6px;
+      border: 1px solid #ccc;
+      font-size: 16px;
+    }
+
+    .sell-form input[type="file"] {
+      padding: 4px;
+    }
+
+    .sell-form button {
+      grid-column: span 2;
+      background-color: #228B22;
+      color: white;
+      border: none;
+      padding: 12px;
+      font-size: 16px;
+      border-radius: 6px;
+      cursor: pointer;
+    }
+
+    .sell-form button:hover {
+      background-color: #1e7a1e;
+    }
+
+    .product-list {
+      margin-top: 40px;
+    }
+
+    .product-card {
+      display: flex;
+      align-items: center;
+      gap: 15px;
+      background: white;
+      padding: 15px;
+      margin-bottom: 15px;
+      border-radius: 8px;
+      box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+    }
+
+    .product-card img {
+      width: 80px;
+      height: 80px;
+      border-radius: 5px;
+      object-fit: cover;
+    }
+
+    .product-info {
+      flex-grow: 1;
+    }
+
+    .stars {
+      color: #f4c430;
+      font-size: 18px;
+    }
+
+    footer {
+      background-color: #228B22;
+      color: white;
+      text-align: center;
+      padding: 20px 10px;
+      margin-top: 50px;
+    }
+  </style>
+</head>
+<body>
+  
+  <nav>
+    <h1 style="color:darkgreen">Hinga</h1>
+    <ul>
+      <li><a href="./index.html"><i class="fas fa-home fa-bounce"></i>Home</a></li>
+      <li><a href="./buy.html">Buy</a></li>
+      <li><a href="./sell.html">Sell</a></li>
+      
+    </ul>
+  </nav>
+
+    <section class="sell-container">
+    <h2>Sell Your Farming Products</h2>
+    <form class="sell-form" id="sellForm">
+      <input type="text" id="productName" placeholder="Product Name" required />
+      <input type="number" id="amount" placeholder="Amount (kg or unit)" required />
+      <select id="quality">
+        <option value="" disabled selected>Select Quality</option>
+        <option>High</option>
+        <option>Medium</option>
+        <option>Low</option>
+      </select>
+      <input type="file" id="imageFile" accept="image/*" required />
+      <select id="rating">
+        <option value="" disabled selected>Star Rating</option>
+        <option value="1">★☆☆☆☆</option>
+        <option value="2">★★☆☆☆</option>
+        <option value="3">★★★☆☆</option>
+        <option value="4">★★★★☆</option>
+        <option value="5">★★★★★</option>
+      </select>
+      <button type="submit">Add Product</button>
+    </form>
+
+    
+    <div class="product-list" id="productList"></div>
+  </section>
+
+    <footer>
+    &copy; 2025 Hinga - Empowering Farmers Across Rwanda 
+  </footer>
+
+  <script>
+    const sellForm = document.getElementById('sellForm');
+    const productList = document.getElementById('productList');
+
+    sellForm.addEventListener('submit', function (e) {
+      e.preventDefault();
+
+      const name = document.getElementById('productName').value;
+      const amount = document.getElementById('amount').value;
+      const quality = document.getElementById('quality').value;
+      const rating = parseInt(document.getElementById('rating').value);
+      const imageFile = document.getElementById('imageFile').files[0];
+
+      const stars = "★".repeat(rating) + "☆".repeat(5 - rating);
+
+      if (!imageFile) {
+        alert("Please select an image.");
+        return;
+      }
+
+      const reader = new FileReader();
+      reader.onload = function (e) {
+        const productCard = document.createElement('div');
+        productCard.classList.add('product-card');
+        productCard.innerHTML = `
+          <img src="${e.target.result}" alt="${name}">
+          <div class="product-info">
+            <h3>${name}</h3>
+            <p><strong>Amount:</strong> ${amount}</p>
+            <p><strong>Quality:</strong> ${quality}</p>
+            <p class="stars">${stars}</p>
+          </div>
+        `;
+        productList.appendChild(productCard);
+        sellForm.reset();
+      };
+      reader.readAsDataURL(imageFile);
+    });
+  </script>
+</body>
+</html>
