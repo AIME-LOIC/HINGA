@@ -3,9 +3,10 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Contact Us of  Hinga/title>
+  <title>Contact Us of  Hinga</title>
   <style>
-    
+
+   
     * {
       margin: 0;
       padding: 0;
@@ -20,56 +21,17 @@
     
     body {
       background: url('hello.jpg') no-repeat center center/cover;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: flex-start;
+      /* display: flex; */
+      /* flex-direction: column; */
+      /* align-items: center; */
+      /* justify-content: flex-start; */
+      font-family: 'Poppins', sans-serif;
     }
 
     
-    .navbar {
-      width: 100%;
-      background-color: rgba(13, 65, 13, 0.7); 
-      padding: 25px 40px;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      position: fixed;
-      top: 0;
-      z-index: 100;
-      padding: 9px 70px;
-  
-    }
-
-    .navbar .logo {
-  margin-right: 30px;
-}
-
-.navbar .logo img {
-  height: 75px;
-  transition: transform 0.3s;
-}
-
-.navbar .logo img:hover {
-  transform: scale(1.05);
-}
-
-
-    .navbar a {
-      color: rgb(255, 255, 255);
-      text-decoration: none;
-      margin-left: 25px;
-      font-size: 18px;
-      transition: color 0.3s;
-    }
-
-    .navbar a:hover {
-      color: #00e413;
-    }
-
-    
+   
     .contact-wrapper {
-      margin-top: 150px;
+      margin-top: 50px;
       background: rgba(255, 255, 255, 0.116);
       backdrop-filter: blur(10px);
       -webkit-backdrop-filter: blur(10px);
@@ -79,6 +41,9 @@
       max-width: 400px;
       box-shadow: 0 8px 32px rgba(0, 0, 0, 0.514);
       color: rgb(255, 255, 255);
+      justify-content: center;
+      align-items: center;
+      margin-left: 430px;
     }
 
     .contact-wrapper h2 {
@@ -143,22 +108,123 @@
       color: rgb(255, 255, 255);
       font-size: 14px;
     }
+    .see{
+      text-align: center;
+      display: flex;
+    margin-right: 45px;
+    padding-right: 50px;
+    gap: 30px;
+    }
+    
+    header {
+      background-color: rgba(6, 33, 6, 0.9); 
+      padding: 15px 30px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+    }
+
+    .logo {
+      display: flex;
+      align-items: center;
+      color: white;
+      font-size: 1.8rem;
+      font-weight: bold;
+    }
+
+    .logo img {
+      height: 40px;
+      margin-right: 10px;
+    }
+
+    nav {
+      display: flex;
+      gap: 20px;
+      flex-wrap: wrap;
+      align-items: center;
+    }
+
+    nav a {
+      color: white;
+      text-decoration: none;
+      position: relative;
+      
+    }
+
+    nav a:hover {
+      color: #ffe600;
+    }
+
+    .dropdown {
+      position: relative;
+      
+    }
+
+    .dropdown-content {
+      display: none;
+      position: absolute;
+      top: 30px;
+      left: 0;
+      background-color: seagreen;
+      padding: 10px;
+      border-radius: 5px;
+      z-index: 100;
+      width: 250px;
+    }
+
+    .dropdown-content a {
+      display: block;
+      padding: 5px 10px;
+      color: white;
+      text-decoration: none;
+    }
+
+    .dropdown-content a:hover {
+      background-color: #2eaa2e;
+    }
+
+    .dropdown:hover .dropdown-content {
+      display: block;
+    }
   </style>
 </head>
 <body>
-
-  
-  <div class="navbar">
+  <header>
     <div class="logo">
-      <img src="logo.PNG" alt="Hinga Logo" />
+      <img src="./hinga logo.png.png" alt="Hinga Logo" style="border-radius: 20px" />
+      <span style="color: #ffe600;">HINGA☘</span>
     </div>
-    <div>
-              
-      <a href="login.html">Login</a>
-      <a href="./index.html" class="back-home">← Back to Home</a>
-    </div>
-  </div>
-
+    <nav>
+      <div class="see">
+      <a href="./index.html"> Home</a>
+      <div class="dropdown">
+        <a href="#"> About Us</a>
+        <div class="dropdown-content">
+          <a href="./mission.html">  Our Mission</a>
+        <hr>  <a href="./vision.html">  Our Vision</a>
+         <hr> <a href="./team.html">  Team</a>
+        <hr>
+        </div>
+      </div>
+      <div class="dropdown">
+        <a href="#"></i>Service</a>
+        <div class="dropdown-content">
+          <a href="./real.html">Real-time Weather</a>
+          <hr><a href="./sell.html">Buy&Sell</a>
+          <hr><a href="./train.html">Training</a>
+         <hr> <a href="./tools.html">Tools</a>
+         <hr> <a href="./guide.html">Guideline</a>
+         <hr>
+        </div>
+      </div>
+      <a href="./coca.html"></i> Contact</a>
+      </div>
+      <a href="./login.html"><i class="fas fa-user"></i> Log In</a>
+    </nav>
+  </header>
+  
+ 
   
   <div class="contact-wrapper">
     <h2>Get in Touch</h2>

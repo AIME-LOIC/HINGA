@@ -177,6 +177,77 @@
       color: #69f0ae;
       text-decoration: underline;
     }
+    
+    header {
+      background-color: rgba(6, 33, 6, 0.9); 
+      padding: 15px 30px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+    }
+
+    .logo {
+      display: flex;
+      align-items: center;
+      color: white;
+      font-size: 1.8rem;
+      font-weight: bold;
+    }
+
+    .logo img {
+      height: 40px;
+      margin-right: 10px;
+    }
+
+    nav {
+      display: flex;
+      gap: 20px;
+      flex-wrap: wrap;
+      align-items: center;
+    }
+
+    nav a {
+      color: white;
+      text-decoration: none;
+      position: relative;
+    }
+
+    nav a:hover {
+      color: #ffe600;
+    }
+
+    .dropdown {
+      position: relative;
+    }
+
+    .dropdown-content {
+      display: none;
+      position: absolute;
+      top: 30px;
+      left: 0;
+      background-color:seagreen;
+      padding: 10px;
+      border-radius: 5px;
+      z-index: 100;
+      width: 250px;
+    }
+
+    .dropdown-content a {
+      display: block;
+      padding: 5px 10px;
+      color: white;
+      text-decoration: none;
+    }
+
+    .dropdown-content a:hover {
+      background-color: #2eaa2e;
+    }
+
+    .dropdown:hover .dropdown-content {
+      display: block;
+    }
+
 
     @keyframes slideInLeft {
       from {
@@ -197,9 +268,46 @@
         transform: translateX(0%);
       }
     }
+    .see{
+      text-align: center;
+      display: flex;
+    margin-right: 45px;
+    padding-right: 50px;
+    gap: 30px;
+    }
   </style>
 </head>
 <body>
+  <header>
+    <div class="logo">
+      <img src="./hinga logo.png.png" alt="Hinga Logo" style="border-radius: 20px" />
+      <span style="color:#ffe600 ;">HINGA☘</span>
+    </div>
+    <nav>
+      <div class="see">
+      <a href="#">Home</a>
+      <div class="dropdown">
+        <a href="#">About Us</a>
+        <div class="dropdown-content">
+       <hr><a href="./mission.html">Our Mission</a>
+          <hr><a href="./vision.html">Our Vision</a>
+          <hr><a href="./team.html">Team</a><hr>
+        </div>
+      </div>
+      <div class="dropdown">
+        <a href="#">Service</a>
+        <div class="dropdown-content">
+        <hr><a href="./real.html">Real-time Weather</a>
+          <hr><a href="./sell.html">Buy&Sell</a>
+          <hr><a href="./train.html">Training</a>
+          <hr><a href="./tools.html">Tools</a>
+          <hr><a href="./guide.html">Guideline</a><hr>
+        </div>
+      </div>
+      <a href="./coca.html"> Contact</a></div>
+      <a href="./login.html"><i class="fas fa-user"></i> Log In</a>
+    </nav>
+  </header>
   <div class="split-screen">
     <div class="left-side"></div>
     <div class="right-side">
@@ -229,7 +337,9 @@
       </div>
 
     <div class="rain" id="rain"></div>
+    
   </div>
+  
 
   <script>
     const form = document.getElementById('loginForm');

@@ -1,6 +1,6 @@
 :root{
-  --bg-color1: #212529;
-  --bg-color2: #2a2b2d;
+  --bg-color1:rgb(3, 103, 73);
+  --bg-color2:rgb(2, 72, 64);
   --aqi-1: #d4e157;
   --aqi-2: #ffee58;
   --aqi-3: #ffca28;
@@ -57,7 +57,7 @@ cursor: pointer;
     font-size:  16px;
     padding: 12px;
     border-radius: 25px;
-    background-color: #ea6e4b;
+    background-color:rgb(75, 234, 171);
     cursor: pointer;
 }
 .card{
@@ -296,6 +296,82 @@ grid-template-columns: repeat(2, 1fr);
 }
 
 
+header {
+  /* background-color: rgba(6, 33,6,0.9);  */
+  padding: 15px 30px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+  color: white;
+  font-size: 1.8rem;
+  font-weight: bold;
+}
+
+.logo img {
+  height: 40px;
+  margin-right: 10px;
+}
+
+nav {
+  display: flex;
+  gap: 20px;
+  flex-wrap: wrap;
+  align-items: center;
+}
+
+nav a {
+  color: white;
+  text-decoration: none;
+  position: relative;
+}
+
+nav a:hover {
+  color: #ffe600;
+}
+
+.dropdown {
+  position: relative;
+}
+
+.dropdown-content {
+  display: none;
+  position: absolute;
+  top: 30px;
+  left: 0;
+  background-color: seagreen;
+  padding: 10px;
+  border-radius: 5px;
+  z-index: 100;
+  width: 250px;
+}
+
+.dropdown-content a {
+  display: block;
+  padding: 5px 10px;
+  color: white;
+  text-decoration: none;
+}
+
+.dropdown-content a:hover {
+  background-color: #2eaa2e;
+}
+
+.dropdown:hover .dropdown-content {
+  display: block;
+}
+.see{
+  text-align: center;
+  display: flex;
+margin-right: 45px;
+padding-right: 50px;
+gap: 30px;
+}
 
 
 

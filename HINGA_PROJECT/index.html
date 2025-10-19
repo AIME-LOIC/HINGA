@@ -20,7 +20,7 @@
     }
 
     header {
-      background-color: rgba(34, 139, 34, 0.9); 
+      background-color:  rgba(6, 33, 6, 0.9);  
       padding: 15px 30px;
       display: flex;
       justify-content: space-between;
@@ -52,6 +52,7 @@
       color: white;
       text-decoration: none;
       position: relative;
+      
     }
 
     nav a:hover {
@@ -60,6 +61,7 @@
 
     .dropdown {
       position: relative;
+      
     }
 
     .dropdown-content {
@@ -67,10 +69,11 @@
       position: absolute;
       top: 30px;
       left: 0;
-      background-color: #228B22;
+      background-color:seagreen;
       padding: 10px;
       border-radius: 5px;
       z-index: 100;
+      width: 250px;
     }
 
     .dropdown-content a {
@@ -137,6 +140,12 @@
       transition: background 0.3s ease;
     }
 
+    .btns button:nth-child(1){
+      border: 2px solid;
+      border-color: #09e317;
+      background-color: transparent;
+    }
+
     .btns button:hover {
       background-color: #09e317;
     }
@@ -199,9 +208,10 @@
     }
 
     footer {
-      background-color: #029040;
+      background-color: #185131;
       color: white;
       padding: 40px 20px;
+      
     }
 
     .footer-columns {
@@ -259,35 +269,44 @@
         align-items: center;
       }
     }
+    .see{
+      text-align: center;
+      display: flex;
+    margin-right: 45px;
+    padding-right: 50px;
+    gap: 30px;
+    }
   </style>
 </head>
 <body>
   <header>
     <div class="logo">
       <img src="./hinga logo.png.png" alt="Hinga Logo" style="border-radius: 20px" />
-      <span>HINGA☘</span>
+      <span style="color: #ffe600;">HINGA☘</span>
     </div>
     <nav>
-      <a href="#"><i class="fas fa-home"></i> Home</a>
+      <div class="see">
+      <a href="#"> Home</a>
       <div class="dropdown">
-        <a href="#"><i class="fas fa-users"></i> About Us</a>
+        <a href="#"> About Us</a>
         <div class="dropdown-content">
-          <a href="./mission.html"> > Our Mission</a>
-          <a href="./vision.html"> > Our Vision</a>
-          <a href="./team.html"> > Team</a>
+         <hr> <a href="./mission.html">Our Mission</a>
+          <hr><a href="./vision.html">Our Vision</a>
+          <hr><a href="./team.html">Team</a><hr>
         </div>
       </div>
       <div class="dropdown">
-        <a href="#"><i class="fas fa-cogs"></i> Service</a>
+        <a href="#"></i> Service</a>
         <div class="dropdown-content">
-          <a href="./real.html"> > Real-time Weather</a>
-          <a href="./sell.html"> >Buy&Sell</a>
-          <a href="./train.html"> > Training</a>
-          <a href="./tools.html"> > Tools</a>
-          <a href="./guide.html"> > Guideline</a>
+          <hr><a href="./real.html">Real-time Weather</a>
+          <hr><a href="./sell.html">Buy&Sell</a>
+        <hr><a href="./train.html">Training</a>
+         <hr><a href="./tools.html">Tools</a>
+          <hr><a href="./guide.html">Guideline</a><hr>
         </div>
       </div>
-      <a href="./coca.html"><i class="fas fa-envelope"></i> Contact</a>
+      <a href="./coca.html"></i> Contact</a>
+      </div>
       <a href="./login.html"><i class="fas fa-user"></i> Log In</a>
     </nav>
   </header>
@@ -295,6 +314,7 @@
   <section class="hero">
     <div class="hero-content">
       <h1>Welcome to Hinga</h1>
+      <p>We empower farmers and provide them with knowledge needed to improve their farming method!!</p>
       <div class="btns">
         <button>Subscribe</button>
         <button>Learn More</button>
@@ -314,13 +334,12 @@
   </section>
 
   <section class="introduction">
-    <h1>ABOUT FARMING</h1>
-    <p>Explore best practices in farming for sustainable growth and food security.</p><br>
+    <h1 style="text-align: center">ABOUT FARMING</h1>
+    <p style="text-align: center" >Explore best practices in farming for sustainable growth and food security.</p><br>
     <p>Farming is the backbone of global food production and rural livelihoods.
       It involves cultivating soil, growing crops, and raising animals for sustenance and trade.
       Modern farming integrates technology to increase efficiency and sustainability.
-      Healthy soil, proper irrigation, and quality tools are essential for high yields.
-      Training and knowledge-sharing empower farmers to adapt to changing conditions.</p><br>
+      </p><br>
 
     <div class="info-cards">
       <div class="info-card">
@@ -347,7 +366,12 @@
   </section>
 
   <footer>
+    
     <div class="footer-columns">
+      <div class="footer-column">
+        <img src="./hinga logo.png.png" style="width: 100px; border-radius: 70px;">
+      </div>
+      
       <div class="footer-column">
         <h4>Quick Links</h4>
         <a href="./index.html">Home</a>
@@ -364,18 +388,18 @@
       <div class="footer-column">
         <h4>Contact</h4>
         <a href="#nancytetakwizera@gmail.com">Email</a>
-        <a href="#">Call Us</a>
-        <a href="#">Visit</a>
+        <a href="./coca.html">Call Us</a>
+        <a href="./index.html">Visit</a>
       </div>
-      <div class="footer-column">
-        <h4>Follow Us</h4>
-        <div class="social-icons">
-          <a href="#"><i class="fab fa-facebook"></i></a>
-          <a href="#"><i class="fab fa-twitter"></i></a>
-          <a href="#"><i class="fab fa-linkedin"></i></a>
-          <a href="#"><i class="fab fa-instagram"></i></a>
-        </div>
-      </div>
+
+    
+    </div>
+    <h4 style="color: yellow;">Follow Us</h4>
+    <div class="social-icons">
+      <a href="#"><i class="fab fa-facebook"></i></a>
+      <a href="#"><i class="fab fa-twitter"></i></a>
+      <a href="#"><i class="fab fa-linkedin"></i></a>
+      <a href="#"><i class="fab fa-instagram"></i></a>
     </div>
     <p style="text-align: center; margin-top: 20px;">&copy; 2025 Hinga Agritech | Empowering Farmers</p>
   </footer>
